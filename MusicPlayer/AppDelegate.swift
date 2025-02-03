@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MusicPlayer
 //
-//  Created by Vikas Hareram Shah on 02/02/25.
+//  Created by Aditya on 02/02/25.
 //
 
 import UIKit

@@ -65,6 +65,11 @@
                 <constraint firstAttribute="trailing" secondItem="W0v-sm-iJB" secondAttribute="trailing" id="zhj-N9-IkQ"/>
             </constraints>
             <size key="customSize" width="229" height="242"/>
+            <connections>
+                <outlet property="imageview" destination="W0v-sm-iJB" id="WeW-TG-8LN"/>
+                <outlet property="musicLabel" destination="fin-wM-yQk" id="9EZ-K2-Fjx"/>
+                <outlet property="songsandxplbl" destination="p4y-SR-qs8" id="hhO-Pk-1Br"/>
+            </connections>
             <point key="canvasLocation" x="275.57251908396944" y="23.943661971830988"/>
         </collectionViewCell>
     </objects>

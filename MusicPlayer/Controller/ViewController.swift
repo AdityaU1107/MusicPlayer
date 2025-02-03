@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  MusicPlayer
 //
-//  Created by Vikas Hareram Shah on 02/02/25.
+//  Created by Aditya on 02/02/25.
 //
 
 import UIKit
@@ -26,11 +26,11 @@ class ViewController: UIViewController , UIScrollViewDelegate {
     @IBOutlet weak var tableview1: UITableView!
     
     let musicArray: [MusicDetail] = [
-        MusicDetail(musicname: "Chill Vibes", categoryame: "Lo-Fi", xpPoints: "120", countSongs: "15", duration: "45 min", image: "chill_vibes.jpg"),
-        MusicDetail(musicname: "Rock Legends", categoryame: "Rock", xpPoints: "200", countSongs: "20", duration: "1 hr", image: "rock_legends.jpg"),
-        MusicDetail(musicname: "Hip-Hop Beats", categoryame: "Hip-Hop", xpPoints: "180", countSongs: "18", duration: "50 min", image: "hiphop_beats.jpg"),
-        MusicDetail(musicname: "Classical Symphony", categoryame: "Classical", xpPoints: "250", countSongs: "25", duration: "1 hr 30 min", image: "classical_symphony.jpg"),
-        MusicDetail(musicname: "Jazz Essentials", categoryame: "Jazz", xpPoints: "170", countSongs: "14", duration: "55 min", image: "jazz_essentials.jpg")
+        MusicDetail(musicname: "Chill Vibes", categoryame: "Lo-Fi", xpPoints: "120", countSongs: "15", duration: "45 min", image: "image1"),
+        MusicDetail(musicname: "Rock Legends", categoryame: "Rock", xpPoints: "200", countSongs: "20", duration: "1 hr", image: "image2"),
+        MusicDetail(musicname: "Hip-Hop Beats", categoryame: "Hip-Hop", xpPoints: "180", countSongs: "18", duration: "50 min", image: "image3"),
+        MusicDetail(musicname: "Classical Symphony", categoryame: "Classical", xpPoints: "250", countSongs: "25", duration: "1 hr 30 min", image: "image4"),
+        MusicDetail(musicname: "Jazz Essentials", categoryame: "Jazz", xpPoints: "170", countSongs: "14", duration: "55 min", image: "image5")
     ]
     
     override func viewDidLoad() {
@@ -52,6 +52,13 @@ class ViewController: UIViewController , UIScrollViewDelegate {
                 ]
     }
     
+    
+    @IBAction func TrendingPlayBtn(_ sender: UIButton) {
+        print("btn is tapped")
+        let vc = storyboard?.instantiateViewController(withIdentifier: "MusicPlayerVC") as! MusicPlayerVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 
 }
 
@@ -60,9 +67,9 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource{
         if collectionView == collectionview1 {
             return categories.count
         } else if collectionView == collectionview2 {
-            return 4
+            return musicArray.count
         }else if collectionView == collectionview3 {
-            return 4
+            return musicArray.count
         }
         return 1
     }
@@ -78,14 +85,33 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource{
             
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContinueCVC", for: indexPath) as! ContinueCVC
             cell.layer.cornerRadius = 20
+            cell.imageview.image = UIImage(named: "\(musicArray[indexPath.row].image ?? "")")
+            cell.musicLabel.text = musicArray[indexPath.row].musicname
+            cell.songsandxplbl.text = "\(musicArray[indexPath.row].countSongs ?? "")songs ● \(musicArray[indexPath.row].xpPoints ?? "")XP"
                 return cell
         } else  if collectionView == collectionview3 {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MusicPlaylistCVC", for: indexPath) as! MusicPlaylistCVC
             cell.layer.cornerRadius = 20
+            cell.imageview.image = UIImage(named: "\(musicArray[indexPath.row].image ?? "")")
+            cell.MusicName.text = musicArray[indexPath.row].categoryame ?? ""
+            cell.countXPLbl.text = "\(musicArray[indexPath.row].countSongs ?? "")songs ● \(musicArray[indexPath.row].xpPoints ?? "")XP"
+            
             return cell
     }
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == collectionview1{
+            let vc = storyboard?.instantiateViewController(withIdentifier: "MusicPlayerVC") as! MusicPlayerVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else if collectionView == collectionview2 {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "MusicListVC") as! MusicListVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "MusicListVC") as! MusicListVC
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -99,8 +125,15 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrendingListTVC", for: indexPath) as! TrendingListTVC
         cell.layer.cornerRadius = 20
-        
+        cell.imageview.image = UIImage(named: "\(musicArray[indexPath.row].image ?? "")")
+        cell.nameLbl.text = musicArray[indexPath.row].musicname
+        cell.timeAndXPLbl.text = "\(musicArray[indexPath.row].duration ?? "")  • \(musicArray[indexPath.row].xpPoints ?? "")XP"
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //if we want to semnd data of selected row then we can send it by from this function
+        let vc = storyboard?.instantiateViewController(withIdentifier: "MusicPlayerVC") as! MusicPlayerVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     

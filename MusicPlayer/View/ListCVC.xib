@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -58,10 +59,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2hr-Sh-dvP">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="48"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZd-IX-ctt">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZd-IX-ctt">
                                                         <rect key="frame" x="0.0" y="0.0" width="35" height="48"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="topFavoriteIcon"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="35" id="Vzz-By-eSY"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Button" image="topFavoriteIcon"/>
+                                                        <state key="selected" image="favoriteSelected"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IvS-UQ-pWW">
                                                         <rect key="frame" x="45" y="0.0" width="35" height="48"/>
@@ -74,6 +79,9 @@
                                                 <rect key="frame" x="0.0" y="53" width="80" height="38"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="Group 480989900"/>
+                                                <connections>
+                                                    <action selector="playBtn:" destination="gTV-IL-0wX" eventType="touchUpInside" id="PCD-hl-wLb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -104,11 +112,18 @@
                 <constraint firstAttribute="trailing" secondItem="o3E-6D-cn4" secondAttribute="trailing" id="zTm-ST-6zV"/>
             </constraints>
             <size key="customSize" width="425" height="101"/>
+            <connections>
+                <outlet property="durationXPlbl" destination="me0-ca-woX" id="0KR-Je-TdR"/>
+                <outlet property="favouritebtn" destination="bZd-IX-ctt" id="bU1-Wg-f3e"/>
+                <outlet property="imageview" destination="KdE-69-3oi" id="GFN-k8-3xf"/>
+                <outlet property="musicname" destination="9Qh-VD-F4D" id="2CI-K8-eaQ"/>
+            </connections>
             <point key="canvasLocation" x="255.72519083969465" y="-1.7605633802816902"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="Group 480989900" width="34" height="34"/>
+        <image name="favoriteSelected" width="44" height="44"/>
         <image name="image2" width="7492" height="5304"/>
         <image name="topDownloadIcon" width="34" height="34"/>
         <image name="topFavoriteIcon" width="34" height="34"/>

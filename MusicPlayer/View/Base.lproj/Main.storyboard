@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ibg-R7-hxp">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
@@ -179,6 +179,9 @@
                                                                 </constraints>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="Group 480989900"/>
+                                                                <connections>
+                                                                    <action selector="TrendingPlayBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qBk-r8-kG9"/>
+                                                                </connections>
                                                             </button>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Yzu-bP-GVi">
                                                                 <rect key="frame" x="110" y="5" width="143" height="70"/>
@@ -393,7 +396,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1066.4122137404579" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1993.1297709923663" y="3.5211267605633805"/>
         </scene>
         <!--Music PlayerVC-->
         <scene sceneID="Hoo-X0-Ufi">
@@ -515,6 +518,17 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVs-um-6pq">
+                                <rect key="frame" x="10" y="109" width="26" height="22"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="arrow.backward" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <action selector="backBtn:" destination="B6X-nc-XR2" eventType="touchUpInside" id="wS2-E0-yrK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S4y-CB-BVw"/>
                         <color key="backgroundColor" red="0.070588238540000001" green="0.062745101750000004" blue="0.25490197539999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -530,10 +544,12 @@
                             <constraint firstItem="S4y-CB-BVw" firstAttribute="trailing" secondItem="pKt-2x-CkY" secondAttribute="trailing" constant="10" id="PM7-b2-pEZ"/>
                             <constraint firstItem="0dx-Sm-Zr7" firstAttribute="leading" secondItem="S4y-CB-BVw" secondAttribute="leading" constant="20" id="Unl-bw-xwf"/>
                             <constraint firstItem="1dT-jR-ef1" firstAttribute="top" secondItem="pKt-2x-CkY" secondAttribute="bottom" constant="10" id="YAx-bO-7t0"/>
+                            <constraint firstItem="HVs-um-6pq" firstAttribute="top" secondItem="S4y-CB-BVw" secondAttribute="top" constant="50" id="anu-Og-cNw"/>
                             <constraint firstItem="0dx-Sm-Zr7" firstAttribute="top" secondItem="IqB-gq-gOk" secondAttribute="bottom" constant="20" id="fez-1I-rtn"/>
                             <constraint firstItem="pKt-2x-CkY" firstAttribute="top" secondItem="0dx-Sm-Zr7" secondAttribute="bottom" constant="25" id="gBm-CM-7q3"/>
                             <constraint firstItem="Afr-vA-IHD" firstAttribute="top" secondItem="pKt-2x-CkY" secondAttribute="bottom" constant="10" id="hlc-0S-M6D"/>
                             <constraint firstItem="IqB-gq-gOk" firstAttribute="top" secondItem="8Jn-Sh-pm6" secondAttribute="top" id="m3e-W9-UDa"/>
+                            <constraint firstItem="HVs-um-6pq" firstAttribute="leading" secondItem="S4y-CB-BVw" secondAttribute="leading" constant="10" id="oJH-j8-lsc"/>
                             <constraint firstItem="S4y-CB-BVw" firstAttribute="trailing" secondItem="IqB-gq-gOk" secondAttribute="trailing" id="wj3-pW-Hu4"/>
                             <constraint firstItem="j4E-78-rcc" firstAttribute="top" secondItem="IqB-gq-gOk" secondAttribute="bottom" constant="20" id="yLa-vT-wSD"/>
                         </constraints>
@@ -554,7 +570,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4t-Xw-GuO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988.5496183206105" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="2915.2671755725191" y="3.5211267605633805"/>
         </scene>
         <!--Music ListVC-->
         <scene sceneID="KZ9-m8-mBk">
@@ -684,7 +700,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i6N-LV-tgg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2730.5343511450383" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="3657.2519083969464" y="3.5211267605633805"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aMn-uU-LGO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ibg-R7-hxp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="waG-tX-vyZ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ukP-QP-sI1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gTc-Pi-Nol" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1066.4122137404579" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>

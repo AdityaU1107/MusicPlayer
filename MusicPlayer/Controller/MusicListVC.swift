@@ -2,7 +2,7 @@
 //  MusicListVC.swift
 //  MusicPlayer
 //
-//  Created by manas dutta on 03/02/25.
+//  Created by Aditya on 03/02/25.
 //
 
 import UIKit
@@ -15,6 +15,13 @@ class MusicListVC: UIViewController {
     @IBOutlet weak var playBtn: UIButton!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    let musicArray: [MusicDetail] = [
+        MusicDetail(musicname: "Sunset Chill", categoryame: "Lo-Fi", xpPoints: "130", countSongs: "12", duration: "40 min", image: "image5"),
+        MusicDetail(musicname: "Metal Mayhem", categoryame: "Metal", xpPoints: "220", countSongs: "22", duration: "1 hr 10 min", image: "image4"),
+        MusicDetail(musicname: "RnB Grooves", categoryame: "RnB", xpPoints: "190", countSongs: "17", duration: "48 min", image: "image3"),
+        MusicDetail(musicname: "Piano Dreams", categoryame: "Instrumental", xpPoints: "260", countSongs: "30", duration: "1 hr 40 min", image: "image2"),
+        MusicDetail(musicname: "Blues Revival", categoryame: "Blues", xpPoints: "175", countSongs: "16", duration: "50 min", image: "image1")
+    ]
     private var lastContentOffset: CGFloat = 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +36,16 @@ class MusicListVC: UIViewController {
 
 extension MusicListVC : UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return musicArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ListCVC", for: indexPath) as! ListCVC
         cell.layer.cornerRadius = 10
+        cell.musicname.text = musicArray[indexPath.item].musicname
+        cell.durationXPlbl.text = "\(musicArray[indexPath.item].duration ?? "") ● \(musicArray[indexPath.item].xpPoints ?? "")XP"
+        cell.imageview.image = UIImage(named: "\(musicArray[indexPath.row].image ?? "")")
+        cell.favouritebtn.isSelected.toggle()
         return cell
     }
           

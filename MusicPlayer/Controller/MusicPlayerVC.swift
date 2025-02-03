@@ -2,7 +2,7 @@
 //  MusicPlayerVC.swift
 //  MusicPlayer
 //
-//  Created by manas dutta on 03/02/25.
+//  Created by Aditya on 03/02/25.
 //
 
 import UIKit
@@ -29,6 +29,9 @@ class MusicPlayerVC: UIViewController ,AVAudioPlayerDelegate {
         super.viewDidLoad()
 
         setupAudioPlayer()
+        audioPlayer?.play()
+        startTimer()
+        playPauseBtn.isSelected = true
     }
     func setupAudioPlayer() {
             guard let path = Bundle.main.path(forResource: "raag-pilu", ofType: "mp3") else { return }
@@ -45,7 +48,11 @@ class MusicPlayerVC: UIViewController ,AVAudioPlayerDelegate {
                 print("Error loading audio file")
             }
         }
-        
+    
+    @IBAction func backBtn(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
         @IBAction func playPauseTapped(_ sender: UIButton) {
             sender.isSelected.toggle()
             if audioPlayer?.isPlaying == true {
