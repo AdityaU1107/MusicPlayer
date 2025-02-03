@@ -27,6 +27,8 @@
 		91C320FB2D509AF8003DD90F /* ListCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91C320FA2D509AF8003DD90F /* ListCVC.xib */; };
 		91C320FC2D509AF8003DD90F /* ListCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C320F92D509AF8003DD90F /* ListCVC.swift */; };
 		91C321002D50C416003DD90F /* raag-pilu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 91C320FF2D50C416003DD90F /* raag-pilu.mp3 */; };
+		91CFE6492D50F51500F56094 /* RecommededCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFE6472D50F51500F56094 /* RecommededCVC.swift */; };
+		91CFE64A2D50F51500F56094 /* RecommededCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91CFE6482D50F51500F56094 /* RecommededCVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		91C320F92D509AF8003DD90F /* ListCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCVC.swift; sourceTree = "<group>"; };
 		91C320FA2D509AF8003DD90F /* ListCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCVC.xib; sourceTree = "<group>"; };
 		91C320FF2D50C416003DD90F /* raag-pilu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "raag-pilu.mp3"; sourceTree = "<group>"; };
+		91CFE6472D50F51500F56094 /* RecommededCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommededCVC.swift; sourceTree = "<group>"; };
+		91CFE6482D50F51500F56094 /* RecommededCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommededCVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,8 @@
 				203AB8AE2D4FB3260067E7F6 /* TrendingListTVC.xib */,
 				91C320F92D509AF8003DD90F /* ListCVC.swift */,
 				91C320FA2D509AF8003DD90F /* ListCVC.xib */,
+				91CFE6472D50F51500F56094 /* RecommededCVC.swift */,
+				91CFE6482D50F51500F56094 /* RecommededCVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,6 +200,7 @@
 				203AB8A82D4FAE780067E7F6 /* ContinueCVC.xib in Resources */,
 				203AB8B02D4FB3260067E7F6 /* TrendingListTVC.xib in Resources */,
 				203AB8952D4F228E0067E7F6 /* LaunchScreen.storyboard in Resources */,
+				91CFE64A2D50F51500F56094 /* RecommededCVC.xib in Resources */,
 				203AB8922D4F228E0067E7F6 /* Assets.xcassets in Resources */,
 				203AB89F2D4F927A0067E7F6 /* categoryCVC.xib in Resources */,
 				91C320FB2D509AF8003DD90F /* ListCVC.xib in Resources */,
@@ -217,6 +224,7 @@
 				203AB8AB2D4FB19D0067E7F6 /* MusicPlaylistCVC.swift in Sources */,
 				91C320F62D509363003DD90F /* MusicPlayerVC.swift in Sources */,
 				203AB8AF2D4FB3260067E7F6 /* TrendingListTVC.swift in Sources */,
+				91CFE6492D50F51500F56094 /* RecommededCVC.swift in Sources */,
 				203AB89E2D4F927A0067E7F6 /* categoryCVC.swift in Sources */,
 				91C320F82D509383003DD90F /* MusicListVC.swift in Sources */,
 				203AB8A42D4FA3BA0067E7F6 /* CategoryModel.swift in Sources */,

@@ -38,24 +38,64 @@ class ViewController: UIViewController , UIScrollViewDelegate {
         MusicDetail(musicname: "Jazz Essentials", categoryame: "Jazz", xpPoints: "170", countSongs: "14", duration: "55 min", image: "image5")
     ]
     
+    var timer: Timer?
+        var currentIndex = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionview1.register(UINib(nibName: "categoryCVC", bundle: .main), forCellWithReuseIdentifier: "categoryCVC")
         collectionview2.register(UINib(nibName: "ContinueCVC", bundle: .main), forCellWithReuseIdentifier: "ContinueCVC")
         collectionview3.register(UINib(nibName: "MusicPlaylistCVC", bundle: .main), forCellWithReuseIdentifier: "MusicPlaylistCVC")
+        collectionview4.register(UINib(nibName: "RecommededCVC", bundle: .main), forCellWithReuseIdentifier: "RecommededCVC")
         tableview1.register(UINib(nibName: "TrendingListTVC", bundle: .main), forCellReuseIdentifier: "TrendingListTVC")
         holderview1.layer.cornerRadius = 20
         searchTF.layer.cornerRadius = 25
         searchHolderView.layer.cornerRadius = 25
         tableview1.layer.cornerRadius = 10
         trendingImageview.layer.cornerRadius = 10
+        recommendedImageView.layer.cornerRadius = 10
         categories = [
                     Category(categoryName: "Free"),
                     Category(categoryName: "For Study"),
                     Category(categoryName: "For Work"),
                     Category(categoryName: "For Focus")
                 ]
+        
+        CollectionViewPageControl.numberOfPages = musicArray.count
+                CollectionViewPageControl.currentPage = 0
+        
+        startAutoScroll()
+        updateImage()
     }
+    
+    func startAutoScroll() {
+            timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(changePage), userInfo: nil, repeats: true)
+        }
+        
+        @objc func changePage() {
+            if currentIndex < musicArray.count - 1 {
+                currentIndex += 1
+            } else {
+                currentIndex = 0
+            }
+            
+            // Update Page Control
+            CollectionViewPageControl.currentPage = currentIndex
+            
+            // Reload CollectionView
+            collectionview4.reloadData()
+            
+            // Animate Image Change
+            updateImage()
+        }
+        
+        func updateImage() {
+            let newImage = UIImage(named: musicArray[currentIndex].image ?? "")
+            
+            UIView.transition(with: recommendedImageView, duration: 0.8, options: .transitionFlipFromRight, animations: {
+                self.recommendedImageView.image = newImage
+            }, completion: nil)
+        }
     
     
     @IBAction func TrendingPlayBtn(_ sender: UIButton) {
@@ -75,7 +115,10 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource{
             return musicArray.count
         }else if collectionView == collectionview3 {
             return musicArray.count
+        }else if collectionView == collectionview4 {
+            return musicArray.count
         }
+        
         return 1
     }
     
@@ -104,6 +147,19 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource{
             
             return cell
     }
+        else  if collectionView == collectionview4 {
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommededCVC", for: indexPath) as! RecommededCVC
+            cell.layer.cornerRadius = 20
+            let music = musicArray[currentIndex]
+
+            cell.label1.text = "Music •\(music.categoryame ?? "")"
+            cell.label2.text = "\(music.musicname ?? "")"
+                    cell.label3.text = "\(music.duration ?? "") • \(music.xpPoints ?? "")XP"
+                    //cell.imageview.image = UIImage(named: "\(music.image ?? "")")
+            
+            return cell
+    }
         return UICollectionViewCell()
     }
     
@@ -112,6 +168,11 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource{
             let vc = storyboard?.instantiateViewController(withIdentifier: "MusicPlayerVC") as! MusicPlayerVC
             self.navigationController?.pushViewController(vc, animated: true)
         } else if collectionView == collectionview2 {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "MusicListVC") as! MusicListVC
+           
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else if collectionView == collectionview3 {
             let vc = storyboard?.instantiateViewController(withIdentifier: "MusicListVC") as! MusicListVC
            
             self.navigationController?.pushViewController(vc, animated: true)
@@ -189,6 +250,11 @@ extension ViewController: UICollectionViewDelegateFlowLayout{
         else if collectionView == collectionview3{
             let width = ((collectionview3.frame.width-60)/2.2)
             let height = collectionview3.frame.height
+            return CGSize(width: width, height: height)
+        }
+        else if collectionView == collectionview4{
+            let width = ((collectionview4.frame.width))
+            let height = collectionview4.frame.height
             return CGSize(width: width, height: height)
         }
         let width = ((collectionview1.frame.width))
