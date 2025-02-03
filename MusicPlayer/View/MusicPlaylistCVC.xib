@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MusicPlaylistCVC" id="gTV-IL-0wX" customClass="MusicPlaylistCVC" customModule="MusicPlayer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="220" height="221"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="220" height="221"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="staticSquareThumbnailIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Fvr-H8-qYr">
+                        <rect key="frame" x="0.0" y="0.0" width="220" height="150"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="220" id="EMr-k0-xVT"/>
+                            <constraint firstAttribute="height" constant="150" id="p4q-EQ-QmT"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TUg-ML-ycD">
+                        <rect key="frame" x="10" y="150" width="210" height="71"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raag" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbi-HI-gXb">
+                                <rect key="frame" x="0.0" y="0.0" width="210" height="35.666666666666664"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 songs ● 50XP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNh-uE-Lqu">
+                                <rect key="frame" x="0.0" y="35.666666666666657" width="210" height="35.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.19209408760070801" green="0.45955634117126465" blue="0.28199556469917297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </stackView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" red="0.19209408760070801" green="0.45955634117126465" blue="0.28199556469917297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="TUg-ML-ycD" secondAttribute="trailing" id="9NI-OP-sFn"/>
+                <constraint firstItem="Fvr-H8-qYr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="EAd-1c-Vf1"/>
+                <constraint firstAttribute="bottom" secondItem="TUg-ML-ycD" secondAttribute="bottom" id="G4k-Rp-Cov"/>
+                <constraint firstItem="Fvr-H8-qYr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ksn-ZS-MKV"/>
+                <constraint firstAttribute="trailing" secondItem="Fvr-H8-qYr" secondAttribute="trailing" id="U0q-Ub-KCR"/>
+                <constraint firstItem="TUg-ML-ycD" firstAttribute="top" secondItem="Fvr-H8-qYr" secondAttribute="bottom" id="ZTX-oA-biH"/>
+                <constraint firstItem="TUg-ML-ycD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="wuc-I2-EGw"/>
+            </constraints>
+            <size key="customSize" width="220" height="221"/>
+            <point key="canvasLocation" x="184.73282442748092" y="79.929577464788736"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="staticSquareThumbnailIcon" width="320" height="320"/>
+    </resources>
+</document>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ContinueCVC" id="gTV-IL-0wX" customClass="ContinueCVC" customModule="MusicPlayer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="229" height="242"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="229" height="242"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="W0v-sm-iJB">
+                        <rect key="frame" x="0.0" y="0.0" width="229" height="140"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="229" id="V3g-XK-V1T"/>
+                            <constraint firstAttribute="height" constant="140" id="rBm-Xf-lvV"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TLu-hd-Uml">
+                        <rect key="frame" x="5" y="140" width="224" height="102"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxv-dK-Gci">
+                                <rect key="frame" x="0.0" y="0.0" width="224" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="sek-Dj-tG4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ease anxiety Stress" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fin-wM-yQk">
+                                <rect key="frame" x="0.0" y="25" width="224" height="52"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="42 songs ● 370XP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4y-SR-qs8">
+                                <rect key="frame" x="0.0" y="77" width="224" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="9Ue-tn-UgB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="TLu-hd-Uml" secondAttribute="trailing" id="1s4-pA-YkK"/>
+                <constraint firstItem="TLu-hd-Uml" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="A8a-lk-6gL"/>
+                <constraint firstItem="W0v-sm-iJB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="McM-Pq-y7e"/>
+                <constraint firstAttribute="bottom" secondItem="TLu-hd-Uml" secondAttribute="bottom" id="Upe-DB-UN5"/>
+                <constraint firstItem="TLu-hd-Uml" firstAttribute="top" secondItem="W0v-sm-iJB" secondAttribute="bottom" id="dAZ-h7-6bD"/>
+                <constraint firstItem="W0v-sm-iJB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="irA-T5-FCz"/>
+                <constraint firstAttribute="trailing" secondItem="W0v-sm-iJB" secondAttribute="trailing" id="zhj-N9-IkQ"/>
+            </constraints>
+            <size key="customSize" width="229" height="242"/>
+            <point key="canvasLocation" x="275.57251908396944" y="23.943661971830988"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="image1" width="7900" height="5267"/>
+    </resources>
+</document>
