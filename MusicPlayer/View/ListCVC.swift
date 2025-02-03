@@ -13,16 +13,21 @@ class ListCVC: UICollectionViewCell {
     @IBOutlet weak var durationXPlbl: UILabel!
     @IBOutlet weak var favouritebtn: UIButton!
     @IBOutlet weak var musicname: UILabel!
-    
+    var favoriteButtonAction: (() -> Void)?
+        var playButtonAction: (() -> Void)?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-   
+    @IBAction func favouriteBtnTapped(_ sender: UIButton) {
+            sender.isSelected.toggle()
+            favoriteButtonAction?()
+        }
     
     @IBAction func playBtn(_ sender: UIButton) {
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "MusicListVC") as! MusicListVC
-//        self.navigationController?.pushViewController(vc, animated: true)
+        
+                playButtonAction?()
+            
     }
 }

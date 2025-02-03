@@ -22,12 +22,18 @@ class MusicPlayerVC: UIViewController ,AVAudioPlayerDelegate {
     @IBOutlet weak var musicCountdownLbl: UILabel!
     @IBOutlet weak var durationLbl: UILabel!
     
+    var selectedMusic: MusicDetail?
     var audioPlayer: AVAudioPlayer?
         var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let music = selectedMusic {
+            MusicNameLbl.text = music.musicname
+                    
+            print("\(music.categoryame ?? "")")
+                    musicImageView.image = UIImage(named: music.image ?? "")
+                }
         setupAudioPlayer()
         audioPlayer?.play()
         startTimer()

@@ -22,6 +22,7 @@ class MusicListVC: UIViewController {
         MusicDetail(musicname: "Piano Dreams", categoryame: "Instrumental", xpPoints: "260", countSongs: "30", duration: "1 hr 40 min", image: "image2"),
         MusicDetail(musicname: "Blues Revival", categoryame: "Blues", xpPoints: "175", countSongs: "16", duration: "50 min", image: "image1")
     ]
+    var selectedFavorites: Set<Int> = []
     private var lastContentOffset: CGFloat = 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,12 @@ class MusicListVC: UIViewController {
         print("the code is running in main branch")
     }
     
-
+    @IBAction func playBtn(_ sender: UIButton) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MusicPlayerVC") as! MusicPlayerVC
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
 
 }
@@ -45,7 +51,25 @@ extension MusicListVC : UICollectionViewDelegate,UICollectionViewDataSource{
         cell.musicname.text = musicArray[indexPath.item].musicname
         cell.durationXPlbl.text = "\(musicArray[indexPath.item].duration ?? "") ● \(musicArray[indexPath.item].xpPoints ?? "")XP"
         cell.imageview.image = UIImage(named: "\(musicArray[indexPath.row].image ?? "")")
-        cell.favouritebtn.isSelected.toggle()
+        cell.favouritebtn.isSelected = selectedFavorites.contains(indexPath.item)
+
+                
+                cell.favoriteButtonAction = { [weak self] in
+                    guard let self = self else { return }
+                    if self.selectedFavorites.contains(indexPath.item) {
+                        self.selectedFavorites.remove(indexPath.item)
+                    } else {
+                        self.selectedFavorites.insert(indexPath.item)
+                    }
+                }
+
+                
+                cell.playButtonAction = { [weak self] in
+                    guard let self = self else { return }
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "MusicPlayerVC") as! MusicPlayerVC
+                    vc.selectedMusic = self.musicArray[indexPath.item]
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
         return cell
     }
           

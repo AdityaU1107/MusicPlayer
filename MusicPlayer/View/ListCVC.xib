@@ -67,6 +67,9 @@
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Button" image="topFavoriteIcon"/>
                                                         <state key="selected" image="favoriteSelected"/>
+                                                        <connections>
+                                                            <action selector="favouriteBtnTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="tEg-2W-Dgd"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IvS-UQ-pWW">
                                                         <rect key="frame" x="45" y="0.0" width="35" height="48"/>

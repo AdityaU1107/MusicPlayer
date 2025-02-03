@@ -13,13 +13,18 @@ class ViewController: UIViewController , UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var toggleview: UIView!
     
+    
     @IBOutlet weak var trendingImageview: UIImageView!
     @IBOutlet weak var collectionview1: UICollectionView!
+    
+    @IBOutlet weak var CollectionViewPageControl: UIPageControl!
+    @IBOutlet weak var recommendedImageView: UIImageView!
+    @IBOutlet weak var collectionview4: UICollectionView!
     
     @IBOutlet weak var collectionview2: UICollectionView!
     @IBOutlet weak var collectionview3: UICollectionView!
     @IBOutlet weak var holderview1: UIView!
-    @IBOutlet weak var collectionview4: UICollectionView!
+    
     
     @IBOutlet weak var searchHolderView: UIView!
     @IBOutlet weak var searchTF: UITextField!
@@ -108,6 +113,7 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource{
             self.navigationController?.pushViewController(vc, animated: true)
         } else if collectionView == collectionview2 {
             let vc = storyboard?.instantiateViewController(withIdentifier: "MusicListVC") as! MusicListVC
+           
             self.navigationController?.pushViewController(vc, animated: true)
         }
 //        let vc = storyboard?.instantiateViewController(withIdentifier: "MusicListVC") as! MusicListVC
@@ -133,6 +139,7 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //if we want to semnd data of selected row then we can send it by from this function
         let vc = storyboard?.instantiateViewController(withIdentifier: "MusicPlayerVC") as! MusicPlayerVC
+        vc.selectedMusic = self.musicArray[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
