@@ -81,6 +81,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="imageview" destination="O50-7V-do2" id="ZJ1-UH-kvm"/>
+                <outlet property="nameLbl" destination="Ev4-bN-m2z" id="j4D-Th-N8H"/>
+                <outlet property="timeAndXPLbl" destination="JSA-jh-y3v" id="DsA-tP-ZGU"/>
             </connections>
             <point key="canvasLocation" x="70.229007633587784" y="30.281690140845072"/>
         </tableViewCell>

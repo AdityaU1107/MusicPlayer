@@ -10,6 +10,8 @@ import UIKit
 class TrendingListTVC: UITableViewCell {
 
     
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var timeAndXPLbl: UILabel!
     @IBOutlet weak var imageview: UIImageView!
     
     override func awakeFromNib() {

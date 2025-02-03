@@ -19,7 +19,7 @@ class MusicListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "ListCVC", bundle: .main), forCellWithReuseIdentifier: "ListCVC")
-        
+        print("the code is running in main branch")
     }
     
 
@@ -37,7 +37,7 @@ extension MusicListVC : UICollectionViewDelegate,UICollectionViewDataSource{
         cell.layer.cornerRadius = 10
         return cell
     }
-    
+          
     
 }
 

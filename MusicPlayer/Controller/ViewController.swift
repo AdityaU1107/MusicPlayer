@@ -25,6 +25,14 @@ class ViewController: UIViewController , UIScrollViewDelegate {
     @IBOutlet weak var searchTF: UITextField!
     @IBOutlet weak var tableview1: UITableView!
     
+    let musicArray: [MusicDetail] = [
+        MusicDetail(musicname: "Chill Vibes", categoryame: "Lo-Fi", xpPoints: "120", countSongs: "15", duration: "45 min", image: "chill_vibes.jpg"),
+        MusicDetail(musicname: "Rock Legends", categoryame: "Rock", xpPoints: "200", countSongs: "20", duration: "1 hr", image: "rock_legends.jpg"),
+        MusicDetail(musicname: "Hip-Hop Beats", categoryame: "Hip-Hop", xpPoints: "180", countSongs: "18", duration: "50 min", image: "hiphop_beats.jpg"),
+        MusicDetail(musicname: "Classical Symphony", categoryame: "Classical", xpPoints: "250", countSongs: "25", duration: "1 hr 30 min", image: "classical_symphony.jpg"),
+        MusicDetail(musicname: "Jazz Essentials", categoryame: "Jazz", xpPoints: "170", countSongs: "14", duration: "55 min", image: "jazz_essentials.jpg")
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionview1.register(UINib(nibName: "categoryCVC", bundle: .main), forCellWithReuseIdentifier: "categoryCVC")
@@ -85,12 +93,13 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource{
 
 extension ViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return musicArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrendingListTVC", for: indexPath) as! TrendingListTVC
         cell.layer.cornerRadius = 20
+        
         return cell
     }
     
