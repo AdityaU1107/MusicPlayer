@@ -43,6 +43,9 @@ class ViewController: UIViewController , UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let searchIcon = UIImage(systemName: "magnifyingglass") {
+            searchTF.setLeftIcon(searchIcon)
+        }
         collectionview1.register(UINib(nibName: "categoryCVC", bundle: .main), forCellWithReuseIdentifier: "categoryCVC")
         collectionview2.register(UINib(nibName: "ContinueCVC", bundle: .main), forCellWithReuseIdentifier: "ContinueCVC")
         collectionview3.register(UINib(nibName: "MusicPlaylistCVC", bundle: .main), forCellWithReuseIdentifier: "MusicPlaylistCVC")
@@ -97,6 +100,11 @@ class ViewController: UIViewController , UIScrollViewDelegate {
             }, completion: nil)
         }
     
+    @IBAction func seeAllbtn(_ sender: UIButton) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "MusicListVC") as! MusicListVC
+       
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     @IBAction func TrendingPlayBtn(_ sender: UIButton) {
         print("btn is tapped")
@@ -260,5 +268,19 @@ extension ViewController: UICollectionViewDelegateFlowLayout{
         let width = ((collectionview1.frame.width))
         let height = collectionview1.frame.height
         return CGSize(width: width, height: height)
+    }
+}
+
+extension UITextField {
+    func setLeftIcon(_ image: UIImage) {
+        let iconView = UIImageView(frame: CGRect(x: 5, y: 5, width: 20, height: 20)) // Adjust position if needed
+        iconView.image = image
+        iconView.contentMode = .scaleAspectFit
+        
+        let iconContainerView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        iconContainerView.addSubview(iconView)
+        
+        leftView = iconContainerView
+        leftViewMode = .always
     }
 }

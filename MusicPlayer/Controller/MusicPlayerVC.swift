@@ -64,9 +64,11 @@ class MusicPlayerVC: UIViewController ,AVAudioPlayerDelegate {
             if audioPlayer?.isPlaying == true {
                 audioPlayer?.pause()
                 timer?.invalidate()
+                playPauseBtn.isSelected = false
             } else {
                 audioPlayer?.play()
                 startTimer()
+                playPauseBtn.isSelected = true
             }
         }
         
